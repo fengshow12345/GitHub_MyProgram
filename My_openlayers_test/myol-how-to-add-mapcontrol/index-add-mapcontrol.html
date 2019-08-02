@@ -27,10 +27,17 @@
                 ],
                 //地图视图设置
                 view:new  ol.View({
-                    center:[0,0],
-                    zoom:2,
+                    projection:'EPSG:3857',
+                    center:[12726908.759476697,3578280.207090514],
+                    zoom:12,
                 }),
             });
+            //实例化坐标拾取控件，并加入到地图容器中
+            var mousePosition = new ol.control.MousePosition();
+            olmap.addControl(mousePosition);
+            //实例化鹰眼控件，并加入到地图容器当中
+            var overViewMap = new ol.control.OverviewMap();
+            olmap.addControl(overViewMap);
             //实例化ZoomSlider控件并加载到地图容器中
             var zoomSlider = new ol.control.ZoomSlider();
             olmap.addControl(zoomSlider);
